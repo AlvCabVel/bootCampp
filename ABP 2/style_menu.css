@@ -1,93 +1,85 @@
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+/* style_menu.css */
+body {
+    background-color: #f4f7f6;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      padding: 20px;
-      background-color: #f8f9fa;
-    }
+.container {
+    background: transparent; 
+    max-width: 450px;
+    width: 100%;
+    padding: 0;
+}
 
-    .container {
-      max-width: 400px;
-      margin: 0 auto;
-      background-color: white;
-      border: 1px solid #dee2e6;
-      border-radius: 0.25rem;
-      padding: 3rem;
-      text-align: center;
-    }
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #212529;
-    }
+/* Estilo de Tarjeta de Crédito para el saldo */
+.card {
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(120deg, #2980b9, #8e44ad); /* Azul a Morado */
+    color: white;
+    box-shadow: 0 10px 20px rgba(41, 128, 185, 0.3);
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
 
-    .form-group {
-      margin-bottom: 1rem;
-    }
+.card-body {
+    padding: 2rem;
+    text-align: center;
+}
 
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #212529;
-    }
+.card-body h4 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
 
-    .balance-display {
-      display: flex;
-      justify-content: center;
-      align-items: baseline;
-      margin-bottom: 1rem;
-    }
+.display-4 {
+    font-weight: 700;
+    font-size: 3rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
 
-    .balance-display h5 {
-      font-size: 1.25rem;
-      color: #6c757d;
-      margin-right: 0.25rem;
-      font-weight: 500;
-    }
+/* Botones de acción grandes */
+.btn-lg {
+    border-radius: 12px;
+    padding: 18px;
+    font-size: 1.1rem;
+    background: white;
+    color: #2c3e50;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
 
-    .balance-display h3 {
-      font-size: 1.75rem;
-      color: #212529;
-      font-weight: 500;
-    }
+.btn-lg i {
+    margin-right: 12px;
+    font-size: 1.3rem;
+    color: #2980b9;
+}
 
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 0.75rem 1rem;
-      margin: 0.5rem 0;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.5;
-      text-align: center;
-      text-decoration: none;
-      border: 1px solid transparent;
-      border-radius: 0.25rem;
-      cursor: pointer;
-      transition: all 0.15s ease-in-out;
-    }
-
-    .btn-primary {
-      color: #fff;
-      background-color: #007bff;
-      border-color: #007bff;
-    }
-
-    .btn-primary:hover {
-      background-color: #0069d9;
-      border-color: #0062cc;
-    }
-
-    .btn-primary:active {
-      background-color: #0062cc;
-      border-color: #005cbf;
-    }
-
-    .btn i {
-      margin-right: 0.5rem;
-    }
+.btn-lg:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    border-color: #2980b9;
+    background: #fff;
+    color: #2980b9;
+}

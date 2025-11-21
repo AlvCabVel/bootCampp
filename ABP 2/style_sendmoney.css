@@ -1,79 +1,83 @@
+/* style_sendmoney.css */
 :root {
   --wallet-primary: #007bff;
-  --wallet-success: #28a745;
-  --wallet-bg: #f8f9fa;
-  --wallet-border: #dee2e6;
-  --wallet-text-muted: #6c757d;
+  --wallet-bg: #eff2f7;
+  --wallet-white: #ffffff;
+}
+
+body {
+    background-color: var(--wallet-bg);
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .wallet-container {
-  max-width: 480px;
-  margin: 0 auto;
+    background: var(--wallet-white);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
+h2 {
+    color: #333;
+    font-weight: 700;
+}
+
+/* Lista de contactos mejorada */
 .contact-list-wrapper {
-  border: 1px solid var(--wallet-border);
-  border-radius: 0.375rem;
-  overflow: hidden;
+    max-height: 350px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    margin-top: 10px;
 }
 
-.contact-list-item {
-  transition: background-color 0.2s ease;
-  padding: 0 !important;
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 15px;
+    transition: background 0.2s;
 }
 
-.contact-list-item:hover {
-  background-color: var(--wallet-bg);
+.list-group-item:hover {
+    background-color: #f8f9fa;
 }
 
-.contact-list-item label {
-  cursor: pointer;
-  padding: 1rem;
-  margin: 0;
+.list-group-item:last-child {
+    border-bottom: none;
 }
 
-.contact-list-item:not(:last-child) {
-  border-bottom: 1px solid var(--wallet-border);
+/* Estilos del radio button */
+.form-check-input {
+    width: 1.3em;
+    height: 1.3em;
+    margin-top: 0;
+    cursor: pointer;
 }
 
-.contact-list-item input[type="radio"] {
-  width: 1.25rem;
-  height: 1.25rem;
-  accent-color: var(--wallet-primary);
+.form-check-input:checked + div {
+    color: var(--wallet-primary);
 }
 
+.contact-name {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Formulario de agregar contacto (el que se despliega) */
 .add-contact-form {
-  border: 1px solid var(--wallet-border);
+    border: 2px dashed #dee2e6; /* Borde punteado para diferenciarlo */
+    background-color: #fdfdfd;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.input-group-text {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
 }
 
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
-.form-control:focus,
-.form-select:focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.15);
-}
-
-.btn i {
-  margin-right: 0.5rem;
-}
-
-@media (max-width: 576px) {
-  .wallet-container {
-    padding: 1rem;
-  }
-  .contact-list-item label {
-    padding: 0.75rem;
-  }
-}
-
-#botonVolverMenu {
-  
+#enviarDinero {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--wallet-primary);
 }
