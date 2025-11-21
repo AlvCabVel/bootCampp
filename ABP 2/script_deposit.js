@@ -1,44 +1,47 @@
 $(function(){
+    const botonDeposito = $("#botonDeposito");
+    let inputDepositAmount = $("#depositAmount");
+    let saldoDisplay = $("#saldoActualDisplay");
+    let alertContainer = $("#alert-container");
+    let leyenda = $("#leyendaDeposito");
 
-const botonDeposito = $("#botonDeposito");
-let inputDepositAmount = $("#depositAmount");
-
-$(botonDeposito).on("click", function(e){
-    e.preventDefault()
-
-    let montoADepositar =parseFloat($(inputDepositAmount))
+    let saldoInicial = parseFloat(localStorage.getItem("montoTotal")) || 0;
+    saldoDisplay.text(saldoInicial.toFixed(2));
     
-    if (isNaN(montodepositar) || )
-})
-})
+    botonDeposito.on("click", function(e){
+        e.preventDefault();
+        let montoADepositar = parseFloat(inputDepositAmount.val()); 
+        
+        if (isNaN(montoADepositar) || montoADepositar <= 0) {
+            alertContainer.html('<div class="alert alert-danger alert-dismissible fade show" role="alert">Por favor ingrese un monto válido.<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+            inputDepositAmount.val(""); 
+            return;
+        } else {
+            let montoActual = parseFloat(localStorage.getItem("montoTotal")) || 0;
+            let nuevoMonto = montoActual + montoADepositar;
+            localStorage.setItem("montoTotal", nuevoMonto);
 
+            const fechaHoy = new Date().toLocaleString(); 
+            let nuevaTransaccion = {
+                fecha: fechaHoy,
+                monto: montoADepositar,
+                tipo: "Depósito",
+                descripcion: "Depósito en cuenta"
+            };
 
+            let historial = JSON.parse(localStorage.getItem("historialMovimientos")) || [];
+            historial.push(nuevaTransaccion);
+            localStorage.setItem("historialMovimientos", JSON.stringify(historial));
 
+            inputDepositAmount.val(""); 
+            saldoDisplay.text(nuevoMonto.toFixed(2));
 
---------------------------------------------------------------------------
+            alertContainer.html('<div class="alert alert-success alert-dismissible fade show" role="alert">¡Depósito exitoso! Redirigiendo...<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+            leyenda.text(`Se han depositado $${montoADepositar.toFixed(2)} correctamente.`);
 
-
-function actoDepositar(e) {
-    e.preventDefault()
-    let montoADepositar = parseFloat(inputDepositAmount.value)
-    // quiero hacer una condicional en la que si la persona hace click en el boton, el monto registrawdo a depositar sea sumado al local storage.
-    es decir, colocar monto -> apretar boton -> se suma al localstorage el monto + se borra el monto escrito.
-    if (isNaN(montoADepositar) || montoADepositar <= 0) {
-        alert("Ingrese un monto valido");
-        //devuelva el valor ingresado a como se encontraba antes
-        depositAmount.value = "";
-        return;
-    } else { 
-        let montoActual = parseFloat(localStorage.getItem("montoTotal")) || 0;
-        let nuevoMonto = montoActual + montoADepositar;
-        localStorage.setItem("montoTotal", nuevoMonto);
-        inputDepositAmount.value = ""
-        alert(`Deposito existoso, monto total $${nuevoMonto.toFixed(2)}`)
-        console.log("Monto total en la cuenta:", nuevoMonto);
-    }
-    //corroborar cuanto es lo que hay en el deposito y confirmar si el deposito se realizó
-    console.log("verificación final:", localStorage.getItem("montoTotal"))
-
-}
-//boton que acciona la funcion de agregrar el monto al localstorage.
-botonDeposito.addEventListener("click", actoDepositar)*/
+            setTimeout(function(){
+                window.location.href = "./menu.html";
+            }, 2000);
+        }
+    });
+});

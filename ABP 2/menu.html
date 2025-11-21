@@ -4,32 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wallet - Menú Principal</title>
-  <link rel="stylesheet" href="./style_menu.css"
+  <link rel="stylesheet" href="./style_menu.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-  <div class="container">
+  <div class="container mt-5 text-center">
     <h2>Menú Principal</h2>
-    <div class="form-group">
-      <label for="balance">Dinero en cuenta:</label>
-      <div class="balance-display">
-        <h5>$</h5>
-        <h3 id="montoActual">---</h3>
-      </div>
+    
+    <div class="card my-4">
+        <div class="card-body">
+            <h4>Dinero en cuenta:</h4>
+            <h1 class="display-4">$<span id="montoActual">0.00</span></h1>
+        </div>
     </div>
-    <a href="deposit.html" class="btn btn-primary">
-      <i class="fas fa-piggy-bank"></i>
-      Depositar
-    </a>
-    <a href="sendmoney.html" class="btn btn-primary">
-      <i class="fas fa-paper-plane"></i>
-      Transferir
-    </a>
-    <a href="transactions.html" class="btn btn-primary">
-      <i class="fas fa-list-ul"></i>
-      Últimos Movimientos
-    </a>
+
+    <div id="navigation-message" class="my-3 text-info font-weight-bold"></div>
+
+    <div class="d-grid gap-2">
+        <button id="btnDepositar" class="btn btn-primary btn-lg btn-block mb-2">
+          <i class="fas fa-piggy-bank"></i> Depositar
+        </button>
+        <button id="btnTransferir" class="btn btn-primary btn-lg btn-block mb-2">
+          <i class="fas fa-paper-plane"></i> Transferir
+        </button>
+        <button id="btnMovimientos" class="btn btn-primary btn-lg btn-block mb-2">
+          <i class="fas fa-list-ul"></i> Últimos Movimientos
+        </button>
+    </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="./script_menu.js"></script>

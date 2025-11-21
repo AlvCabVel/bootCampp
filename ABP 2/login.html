@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- METADATOS Y CONFIGURACIÓN DEL DOCUMENTO -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wallet - Login</title>
@@ -9,66 +8,37 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="./style_index.css">
 </head>
-
 <body>
-  <!-- CONTENEDOR PRINCIPAL -->
-  <div class="container">
-
-    <!-- LOGO: Imagen de identidad de la aplicación -->
-    <img 
-      src="https://i.redd.it/jbcj0uqbihg41.jpg" 
-      alt="Logo de la Wallet" 
-      class="img-fluid mb-3 rounded"
-    >
-    <!-- TÍTULO: Encabezado del formulario -->
-    <h2>Inicio de sesión</h2>
+  <div class="container mt-5">
+    <img src="https://i.redd.it/jbcj0uqbihg41.jpg" alt="Logo de la Wallet" class="img-fluid mb-3 rounded" style="max-width: 200px; display: block; margin: 0 auto;">
+    <h2 class="text-center">Inicio de sesión</h2>
     
-        <form  id="loginForm">
-
+    <form id="loginForm">
         <div class="form-group mb-2">
-            <label for="text">Correo:</label>
-            <input type="text" class="form-control" id="email" placeholder="Ingresa tu email">
+            <label for="email">Correo:</label>
+            <input type="email" class="form-control" id="email" placeholder="Ingresa tu email">
         </div> 
-
         <div class="form-group mb-2">
             <label for="password">Clave:</label>
             <input type="password" class="form-control" id="password" placeholder="Ingresa tu clave">
         </div>
-
-        <div class="alert alert-success d-none" id="alertaAprobada" role="alert">
-            Acceso aprobado
-        </div>
-        <div class="alert alert-danger d-none" id="alertaDenegada" role="alert">
-            Acceso denegado
-        </div>
+        
+        <div id="alert-container"></div>
 
         <div class="text-center">
             <button type="submit" class="btn btn-primary mt-2">Acceder</button>
         </div>
-
     </form>
-    <!-- SEPARADOR: Texto indicador para opciones alternativas -->
+
     <p class="text-center my-2">O acceder con</p>
-
-    <!-- BOTÓN GOOGLE: Login con credenciales de Google -->
-    <button type="button" class="btn btn-danger social-btn">
-      <i class="fab fa-google mr-2"></i>
-      Acceder con Google
-    </button>  
-
-    <!-- BOTÓN GITHUB: Login con credenciales de GitHub -->
-    <button type="button" class="btn btn-dark social-btn">
-      <i class="fab fa-github mr-2"></i>
-      Acceder con GitHub
-    </button>
-
+    <div class="text-center">
+        <button type="button" class="btn btn-danger social-btn"><i class="fab fa-google mr-2"></i>Acceder con Google</button>  
+        <button type="button" class="btn btn-dark social-btn"><i class="fab fa-github mr-2"></i>Acceder con GitHub</button>
+    </div>
   </div> 
 
-  <!-- LIBRERÍAS: jQuery para manipulación del DOM -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  
-  <!-- SCRIPTS: Lógica de autenticación y eventos -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="./script_index.js"></script>
-
 </body>
 </html>

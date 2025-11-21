@@ -11,130 +11,63 @@
 <body>
   <div class="container py-5">
     <div class="wallet-container mx-2">
-      <h2 class="text-center mb-4">
-        <i class="fas fa-wallet text-primary"></i> Enviar Dinero
-      </h2>
+      <h2 class="text-center mb-4"><i class="fas fa-wallet text-primary"></i> Enviar Dinero</h2>
+      
+      <div id="feedback-message"></div>
+
       <form id="mainForm">
         <div class="d-none mb-4" id="addContactSection">
           <div class="add-contact-form p-3 bg-light rounded">
-            <h5 class="mb-3">
-              <i class="fas fa-user-plus"></i> Agregar nuevo contacto
-            </h5>
+            <h5 class="mb-3"><i class="fas fa-user-plus"></i> Agregar nuevo contacto</h5>
+            <div class="mb-3"><label>Nombre completo:</label><input type="text" class="form-control" id="nombreCompleto"></div>
+            <div class="mb-3"><label>RUT:</label><input type="text" class="form-control" id="rutContacto"></div>
             <div class="mb-3">
-              <label for="nombreCompleto" class="form-label">Nombre completo:</label>
-              <input type="text" class="form-control" id="nombreCompleto" placeholder="ej: Juan Pérez González">
-            </div>
-            <div class="mb-3">
-              <label for="rutContacto" class="form-label">RUT:</label>
-              <input type="text" class="form-control" id="rutContacto" placeholder="12.345.678-9">
-            </div>
-            <div class="mb-3">
-              <label for="bancoContacto" class="form-label">Banco:</label>
+              <label>Banco:</label>
               <select class="form-select" id="bancoContacto">
-                <option value="">Seleccione un banco</option>
+                <option value="">Seleccione</option>
                 <option value="banco_chile">Banco de Chile</option>
                 <option value="banco_estado">Banco Estado</option>
                 <option value="santander">Santander</option>
-                <option value="bci">BCI</option>
-                <option value="scotiabank">Scotiabank</option>
               </select>
             </div>
-            <div class="mb-3">
-              <label for="numeroCuenta" class="form-label">Número de cuenta:</label>
-              <input type="text" class="form-control" id="numeroCuenta" placeholder="0123456789">
-            </div>
-            <div class="mb-3">
-              <label for="tipoCuenta" class="form-label">Tipo de cuenta:</label>
-              <select class="form-select" id="tipoCuenta">
-                <option value="">Seleccione tipo</option>
-                <option value="corriente">Cuenta Corriente</option>
-                <option value="vista">Cuenta Vista</option>
-                <option value="ahorro">Cuenta de Ahorro</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="emailContacto" class="form-label">Email (opcional):</label>
-              <input type="email" class="form-control" id="emailContacto" placeholder="juan@ejemplo.com">
-            </div>
-            <div class="mb-3">
-              <label for="aliasContacto" class="form-label">Alias (opcional):</label>
-              <input type="text" class="form-control" id="aliasContacto" placeholder="ej: Juan del Trabajo">
-            </div>
-            <button type="button" class="btn btn-primary w-100" id="saveContactBtn">
-              <i class="fas fa-save me-2"></i> Guardar contacto
-            </button>
+            <div class="mb-3"><label>Número de cuenta:</label><input type="text" class="form-control" id="numeroCuenta"></div>
+            <div class="mb-3"><label>Tipo de cuenta:</label><select class="form-select" id="tipoCuenta"><option value="vista">Cuenta Vista</option><option value="corriente">Cuenta Corriente</option></select></div>
+            <div class="mb-3"><label>Alias:</label><input type="text" class="form-control" id="aliasContacto"></div>
+            <button type="button" class="btn btn-primary w-100" id="saveContactBtn">Guardar contacto</button>
+            <button type="button" class="btn btn-danger w-100 mt-2" id="cancelSaveContactBtn">Cancelar</button>
           </div>
         </div>
-        <div class="mb-3">
-          <label for="searchContact" class="form-label">Buscar en la agenda:</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-search"></i></span>
-            <input type="text" class="form-control" id="searchContact" placeholder="Buscar contacto...">
-          </div>
-        </div>
-        <button type="button" class="btn btn-success w-100 mb-4" id="addContactBtn">
-          <i class="fas fa-user-plus me-2"></i> Agregar nuevo contacto
-        </button>
-        <h5 class="mb-3 text-secondary">
-          <i class="fas fa-address-book"></i> Contactos guardados
-        </h5>
+
+        <button type="button" class="btn btn-success w-100 mb-4" id="addContactBtn"><i class="fas fa-user-plus me-2"></i> Agregar nuevo contacto</button>
+
+        <h5 class="mb-3 text-secondary"><i class="fas fa-address-book"></i> Contactos guardados</h5>
         <div class="contact-list-wrapper mb-4">
           <ul class="contact-list list-group" id="contactList">
-            <li class="contact-list-item list-group-item">
-              <label class="d-flex align-items-center gap-3 mb-0">
-                <input type="radio" name="selectedContact" value="454248" class="form-check-input mt-0">
-                <div class="contact-info flex-grow-1">
-                  <span class="contact-name d-block fw-semibold">Nicolas Zagaglioni</span>
-                  <small class="contact-details text-muted">RUT: 454248 • Alias: El espía</small>
-                </div>
-              </label>
-            </li>
-            <li class="contact-list-item list-group-item">
-              <label class="d-flex align-items-center gap-3 mb-0">
-                <input type="radio" name="selectedContact" value="575859" class="form-check-input mt-0">
-                <div class="contact-info flex-grow-1">
-                  <span class="contact-name d-block fw-semibold">Vinko Aravena</span>
-                  <small class="contact-details text-muted">RUT: 575859 • Alias: El mandoneado</small>
-                </div>
-              </label>
-            </li>
-            <li class="contact-list-item list-group-item">
-              <label class="d-flex align-items-center gap-3 mb-0">
-                <input type="radio" name="selectedContact" value="353637" class="form-check-input mt-0">
-                <div class="contact-info flex-grow-1">
-                  <span class="contact-name d-block fw-semibold">Ale</span>
-                  <small class="contact-details text-muted">RUT: 353637 • Alias: El tercero</small>
-                </div>
-              </label>
-            </li>
-            <li class="contact-list-item list-group-item">
-              <label class="d-flex align-items-center gap-3 mb-0">
-                <input type="radio" name="selectedContact" value="313435" class="form-check-input mt-0">
-                <div class="contact-info flex-grow-1">
-                  <span class="contact-name d-block fw-semibold">Jorge</span>
-                  <small class="contact-details text-muted">RUT: 313435 • Alias: PelaoHacker</small>
-                </div>
+            <li class="list-group-item">
+              <label class="d-flex align-items-center gap-3">
+                <input type="radio" name="selectedContact" value="Nicolas Zagaglioni" class="form-check-input">
+                <div><span class="fw-bold">Nicolas Zagaglioni</span><small class="d-block text-muted">Alias: El espía</small></div>
               </label>
             </li>
           </ul>
         </div>
-        <div class="mb-4">
-          <label for="enviarDinero" class="form-label">Monto a enviar:</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-            <input type="number" class="form-control" id="enviarDinero" placeholder="0.00" min="0" step="0.01">
-          </div>
+
+        <div id="sendSection" class="d-none">
+            <div class="mb-4">
+            <label for="enviarDinero" class="form-label">Monto a enviar:</label>
+            <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input type="number" class="form-control" id="enviarDinero" placeholder="0.00" min="0">
+            </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100"><i class="fas fa-paper-plane me-2"></i> Enviar dinero</button>
         </div>
-        <button type="submit" class="btn btn-primary btn-lg w-100">
-          <i class="fas fa-paper-plane me-2"></i> Enviar dinero
-        </button>
-        <a href="menu.html" id="botonVolverMenu" class="btn btn-secondary mt-3 btn-lg w-100">
-          <i class="fas fa-arrow-left"></i>
-          Volver al Menú Principal
-        </a>
+        
+        <a href="menu.html" class="btn btn-secondary mt-3 w-100">Volver al Menú Principal</a>
       </form>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script src="./script_sendmoney.js"></script>
 </body>
